@@ -23,7 +23,14 @@
     <aop:config>
         <aop:aspect id="loggingAspect" ref="loggingAspect">
             <aop:pointcut id="beforeCircleGetter" expression="execution(public com.learning.springaop.model.Circle com.learning.springaop.service.ShapeService.getCircle())" />
-            <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeCircleGetter" />
+            <aop:pointcut id="beforeAllPublicServiceGettersReturningCircle" expression="execution(public com.learning.springaop.model.Circle com.learning.springaop.service.*.get*())" />
+            <aop:pointcut id="beforeAllPublicGettersReturningCircle" expression="execution(public com.learning.springaop.model.Circle get*())" />
+            <aop:pointcut id="beforeAllPublicGettersReturningAnything" expression="execution(public * get*())" />
+            <aop:pointcut id="beforeAllGetters" expression="execution(* get*())" />
+            <aop:pointcut id="beforeAllGettersTakingSomeArgument" expression="execution(* get*(*))" />
+            <aop:pointcut id="beforeAllGettersTakingNoOrSomeArgument" expression="execution(* get*(..))" />
+            <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument" />
+
         </aop:aspect>
     </aop:config>
 
