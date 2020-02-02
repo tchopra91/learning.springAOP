@@ -34,6 +34,7 @@
 
             <aop:after method="logAfterCircleGetter" pointcut="execution(* get*(..))"/>
             <aop:after-returning method="logAfterReturningCircleGetter" returning="result" pointcut="execution(* get*(..))"/>
+            <aop:after-throwing method="logAfterThrowingCircleGetter" throwing="exp" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument"/>
 
         </aop:aspect>
     </aop:config>

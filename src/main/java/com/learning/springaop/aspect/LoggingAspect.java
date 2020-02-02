@@ -15,4 +15,8 @@ public class LoggingAspect {
     public void logAfterReturningCircleGetter(Circle result) {
         System.out.println("---> Logging after returning circle getter :: " + result);
     }
+
+    public void logAfterThrowingCircleGetter(Exception exp) {
+        System.out.println("---> Logging after throwing circle getter :: " + exp);
+    }
 }

@@ -10,6 +10,12 @@ public class ShapeService {
         return circle;
     }
 
+    public Circle getCircleWithException() {
+        System.out.println("---> CicleWithException getter invoked");
+        throw new RuntimeException("Throw getting circle exception");
+        // return circle;
+    }
+
     public void setCircle(Circle circle) {
         this.circle = circle;
     }

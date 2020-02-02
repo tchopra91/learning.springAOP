@@ -12,8 +12,15 @@ public class DemoApplication {
     public static void main(String[] args) {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-        ShapeService shapeService = (ShapeService) context.getBean("shapeService");
-        shapeService.getCircle("dummy text", 1000);
+        try {
+
+            ShapeService shapeService = (ShapeService) context.getBean("shapeService");
+            shapeService.getCircle("dummy text", 1000);
+
+            shapeService.getCircleWithException();
+        } catch (Exception e) {
+            System.out.println("---> Exception occured :: " + e.getMessage());
+        }
 
         context.close();
     }
