@@ -1,5 +1,7 @@
 package com.learning.springaop.aspect;
 
+import com.learning.springaop.model.Circle;
+
 public class LoggingAspect {
 
     public void logBeforeCircleGetter(int id, String text) {
@@ -8,5 +10,9 @@ public class LoggingAspect {
 
     public void logAfterCircleGetter() {
         System.out.println("---> Logging after circle getter");
+    }
+
+    public void logAfterReturningCircleGetter(Circle result) {
+        System.out.println("---> Logging after returning circle getter :: " + result);
     }
 }

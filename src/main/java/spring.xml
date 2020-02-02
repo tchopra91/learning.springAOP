@@ -33,6 +33,7 @@
             <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingDummyArguments" arg-names="arg2,arg1"/>
 
             <aop:after method="logAfterCircleGetter" pointcut="execution(* get*(..))"/>
+            <aop:after-returning method="logAfterReturningCircleGetter" returning="result" pointcut="execution(* get*(..))"/>
 
         </aop:aspect>
     </aop:config>
