@@ -29,7 +29,8 @@
             <aop:pointcut id="beforeAllGetters" expression="execution(* get*())" />
             <aop:pointcut id="beforeAllGettersTakingSomeArgument" expression="execution(* get*(*))" />
             <aop:pointcut id="beforeAllGettersTakingNoOrSomeArgument" expression="execution(* get*(..))" />
-            <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument" />
+            <aop:pointcut id="beforeAllGettersTakingDummyArguments" expression="execution(* get*(String, int)) and args(arg1, arg2)" />
+            <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingDummyArguments" arg-names="arg2,arg1"/>
 
         </aop:aspect>
     </aop:config>

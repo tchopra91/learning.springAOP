@@ -5,7 +5,7 @@ import com.learning.springaop.model.Circle;
 public class ShapeService {
     private Circle circle;
 
-    public Circle getCircle(String dummyArgument) {
+    public Circle getCircle(String dummyText, int dummyId) {
         System.out.println("---> Cicle getter invoked");
         return circle;
     }
