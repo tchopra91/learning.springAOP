@@ -22,7 +22,7 @@
 
     <aop:config>
         <aop:aspect id="loggingAspect" ref="loggingAspect">
-            <aop:before method="logCircleGetter" pointcut="execution(public com.learning.springaop.model.Circle com.learning.springaop.service.ShapeService.getCircle())" />
+            <aop:before method="logBeforeCircleGetter" pointcut="execution(public com.learning.springaop.model.Circle com.learning.springaop.service.ShapeService.getCircle())" />
         </aop:aspect>
     </aop:config>
 
