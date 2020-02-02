@@ -13,7 +13,7 @@ public class DemoApplication {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
         ShapeService shapeService = (ShapeService) context.getBean("shapeService");
-        shapeService.getCircle();
+        shapeService.getCircle("dummy argument");
 
         context.close();
     }
