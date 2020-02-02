@@ -32,6 +32,8 @@
             <aop:pointcut id="beforeAllGettersTakingDummyArguments" expression="execution(* get*(String, int)) and args(arg1, arg2)" />
             <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingDummyArguments" arg-names="arg2,arg1"/>
 
+            <aop:after method="logAfterCircleGetter" pointcut="execution(* get*(..))" />
+
         </aop:aspect>
     </aop:config>
 
