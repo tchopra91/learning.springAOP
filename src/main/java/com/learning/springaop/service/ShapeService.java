@@ -1,10 +1,12 @@
 package com.learning.springaop.service;
 
 import com.learning.springaop.model.Circle;
+import com.learning.springaop.model.Loggable;
 
 public class ShapeService {
     private Circle circle;
 
+    @Loggable
     public Circle getCircle(String dummyText, int dummyId) {
         System.out.println("---> Cicle getter invoked");
         return circle;

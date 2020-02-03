@@ -30,13 +30,15 @@
             <aop:pointcut id="beforeAllGettersTakingSomeArgument" expression="execution(* get*(*))" />
             <aop:pointcut id="beforeAllGettersTakingNoOrSomeArgument" expression="execution(* get*(..))" />
             <aop:pointcut id="beforeAllGettersTakingDummyArguments" expression="execution(* get*(String, int)) and args(arg1, arg2)" />
-            <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingDummyArguments" arg-names="arg2,arg1"/>
 
+            <!-- <aop:before method="logBeforeCircleGetter" pointcut-ref="beforeAllGettersTakingDummyArguments" arg-names="arg2,arg1"/> -->
             <!-- <aop:after method="logAfterCircleGetter" pointcut="execution(* get*(..))"/> -->
             <!-- <aop:after-returning method="logAfterReturningCircleGetter" returning="result" pointcut="execution(* get*(..))"/> -->
             <!-- <aop:after-throwing method="logAfterThrowingCircleGetter" throwing="exp" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument"/> -->
-            <aop:around method="logAfterAroundCircleGetter" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument"/>
+            <!-- <aop:around method="logAfterAroundCircleGetter" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument"/> -->
 
+            <aop:pointcut id="loggableMethods" expression="@annotation(com.learning.springaop.model.Loggable)" />
+            <aop:before method="beforeLoggableMethod" pointcut-ref="loggableMethods"/>
         </aop:aspect>
     </aop:config>
 

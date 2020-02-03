@@ -32,6 +32,9 @@ public class LoggingAspect {
         } finally {
             System.out.println("---> Logging after around circle getter :: Finally");
         }
+    }
 
+    public void beforeLoggableMethod() {
+        System.out.println("---> Logging before loggable method");
     }
 }
