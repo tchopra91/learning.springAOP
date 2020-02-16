@@ -6,7 +6,7 @@ import com.learning.springaop.model.Loggable;
 public class ShapeService {
     private Circle circle;
 
-    public Circle getCircle() {
+    public Circle getCircle(String dummyArgument) {
         System.out.println("---> Cicle getter invoked");
         return circle;
     }
