@@ -66,7 +66,7 @@ public class LoggingAspect {
         System.out.println("---> Logging after throwing circle getter :: " + exp);
     }
 
-    @Around("pointBeforeAllPublicServiceGettersReturningCircle()")
+    // @Around("pointBeforeAllPublicServiceGettersReturningCircle()")
     public void logAfterAroundCircleGetter(ProceedingJoinPoint pjp) {
         try {
             System.out.println("---> Logging after around circle getter :: Before running method");
@@ -79,6 +79,11 @@ public class LoggingAspect {
         }
     }
 
+    @Pointcut("@annotation(com.learning.springaop.model.Loggable)")
+    public void pointLoggableMethods() {
+    }
+
+    @Before("pointLoggableMethods()")
     public void beforeLoggableMethod() {
         System.out.println("---> Logging before loggable method");
     }
