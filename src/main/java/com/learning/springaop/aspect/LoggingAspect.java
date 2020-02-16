@@ -7,6 +7,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -42,26 +43,30 @@ public class LoggingAspect {
     public void pointBeforeAllGettersTakingNoOrSomeArgument() {
     }
 
-    @Before("execution(* com.learning.springaop.service.*.get*(String, int)) and args(text, id)")
+    // @Before("execution(* com.learning.springaop.service.*.get*(String, int)) and
+    // args(text, id)")
     public void logBeforeCircleGetter(int id, String text) {
         System.out.println("---> Logging before circle getter :: " + id + "|" + text);
     }
 
-    @After("pointBeforeAllPublicServiceGettersReturningCircle()")
+    // @After("pointBeforeAllPublicServiceGettersReturningCircle()")
     public void logAfterCircleGetter() {
         System.out.println("---> Logging after circle getter");
     }
 
-    @AfterReturning(pointcut = "pointBeforeAllPublicServiceGettersReturningCircle()", returning = "result")
+    // @AfterReturning(pointcut =
+    // "pointBeforeAllPublicServiceGettersReturningCircle()", returning = "result")
     public void logAfterReturningCircleGetter(Circle result) {
         System.out.println("---> Logging after returning circle getter :: " + result);
     }
 
-    @AfterThrowing(pointcut = "pointBeforeAllPublicServiceGettersReturningCircle()", throwing = "exp")
+    // @AfterThrowing(pointcut =
+    // "pointBeforeAllPublicServiceGettersReturningCircle()", throwing = "exp")
     public void logAfterThrowingCircleGetter(Exception exp) {
         System.out.println("---> Logging after throwing circle getter :: " + exp);
     }
 
+    @Around("pointBeforeAllPublicServiceGettersReturningCircle()")
     public void logAfterAroundCircleGetter(ProceedingJoinPoint pjp) {
         try {
             System.out.println("---> Logging after around circle getter :: Before running method");
