@@ -5,11 +5,16 @@ import com.learning.springaop.model.Circle;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public com.learning.springaop.model.Circle getCircle())")
+    @Pointcut("execution(public com.learning.springaop.model.Circle getCircle())")
+    public void pointBeforeCircleGetter() {
+    }
+
+    @Before("pointBeforeCircleGetter()")
     public void logBeforeCircleGetter() {
         System.out.println("---> Logging before circle getter");
     }
