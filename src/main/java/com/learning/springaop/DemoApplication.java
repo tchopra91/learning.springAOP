@@ -14,7 +14,7 @@ public class DemoApplication {
 
         try {
 
-            ShapeService shapeService = (ShapeService) context.getBean("ShapeService");
+            ShapeService shapeService = (ShapeService) context.getBean("shapeService");
             shapeService.getCircle();
 
             // shapeService.getCircleWithException();
