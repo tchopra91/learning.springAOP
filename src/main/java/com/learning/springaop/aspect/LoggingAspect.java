@@ -39,9 +39,9 @@ public class LoggingAspect {
     public void pointBeforeAllGettersTakingNoOrSomeArgument() {
     }
 
-    @Before("pointBeforeAllPublicServiceGettersReturningCircle()")
-    public void logBeforeCircleGetter(JoinPoint joinPoint) {
-        System.out.println("---> Logging before circle getter :: " + joinPoint.getArgs()[0].toString());
+    @Before("execution(* com.learning.springaop.service.*.get*(String, int)) and args(text, id)")
+    public void logBeforeCircleGetter(int id, String text) {
+        System.out.println("---> Logging before circle getter :: " + id + "|" + text);
     }
 
     public void logAfterCircleGetter() {
