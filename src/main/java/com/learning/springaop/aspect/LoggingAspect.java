@@ -6,6 +6,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -56,6 +57,7 @@ public class LoggingAspect {
         System.out.println("---> Logging after returning circle getter :: " + result);
     }
 
+    @AfterThrowing(pointcut = "pointBeforeAllPublicServiceGettersReturningCircle()", throwing = "exp")
     public void logAfterThrowingCircleGetter(Exception exp) {
         System.out.println("---> Logging after throwing circle getter :: " + exp);
     }
