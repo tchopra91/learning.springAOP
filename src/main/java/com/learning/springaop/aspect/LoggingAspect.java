@@ -5,6 +5,7 @@ import com.learning.springaop.model.Circle;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -50,6 +51,7 @@ public class LoggingAspect {
         System.out.println("---> Logging after circle getter");
     }
 
+    @AfterReturning(pointcut = "pointBeforeAllPublicServiceGettersReturningCircle()", returning = "result")
     public void logAfterReturningCircleGetter(Circle result) {
         System.out.println("---> Logging after returning circle getter :: " + result);
     }
