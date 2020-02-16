@@ -9,6 +9,8 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+    <aop:aspectj-autoproxy />
+
     <bean name="shapeService" class="com.learning.springaop.service.ShapeService">
         <property name="circle" ref="circle" />
     </bean>
@@ -38,8 +40,10 @@
             <!-- <aop:around method="logAfterAroundCircleGetter" pointcut-ref="beforeAllGettersTakingNoOrSomeArgument"/> -->
 
             <aop:pointcut id="loggableMethods" expression="@annotation(com.learning.springaop.model.Loggable)" />
-            <aop:before method="beforeLoggableMethod" pointcut-ref="loggableMethods"/>
+            <!-- <aop:before method="beforeLoggableMethod" pointcut-ref="loggableMethods"/> -->
         </aop:aspect>
     </aop:config>
 
+    <context:annotation-config />
+    <context:component-scan base-package="com.learning.springaop" />
 </beans>
