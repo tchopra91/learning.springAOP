@@ -3,11 +3,15 @@ package com.learning.springaop.aspect;
 import com.learning.springaop.model.Circle;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 
+@Aspect
 public class LoggingAspect {
 
-    public void logBeforeCircleGetter(int id, String text) {
-        System.out.println("---> Logging before circle getter :: " + id + " | " + text);
+    @Before("execution(public com.learning.springaop.model.Circle getCircle())")
+    public void logBeforeCircleGetter() {
+        System.out.println("---> Logging before circle getter");
     }
 
     public void logAfterCircleGetter() {

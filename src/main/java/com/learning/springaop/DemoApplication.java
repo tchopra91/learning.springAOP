@@ -14,12 +14,12 @@ public class DemoApplication {
 
         try {
 
-            ShapeService shapeService = (ShapeService) context.getBean("shapeService");
-            shapeService.getCircle("dummy text", 1000);
+            ShapeService shapeService = (ShapeService) context.getBean("ShapeService");
+            shapeService.getCircle();
 
-            shapeService.getCircleWithException();
+            // shapeService.getCircleWithException();
         } catch (Exception e) {
-            System.out.println("---> Exception occured :: " + e.getMessage());
+            // System.out.println("---> Exception occured :: " + e.getMessage());
         }
 
         context.close();
