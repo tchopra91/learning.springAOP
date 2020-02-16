@@ -14,7 +14,31 @@ public class LoggingAspect {
     public void pointBeforeCircleGetter() {
     }
 
-    @Before("pointBeforeCircleGetter()")
+    @Pointcut("execution(public com.learning.springaop.model.Circle com.learning.springaop.service.*.get*())")
+    public void pointBeforeAllPublicServiceGettersReturningCircle() {
+    }
+
+    @Pointcut("execution(public com.learning.springaop.model.Circle get*())")
+    public void pointBeforeAllPublicGettersReturningCircle() {
+    }
+
+    @Pointcut("execution(public * get*())")
+    public void pointBeforeAllPublicGettersReturningAnything() {
+    }
+
+    @Pointcut("execution(* get*())")
+    public void pointBeforeAllGetters() {
+    }
+
+    @Pointcut("execution(* get*(*))")
+    public void pointBeforeAllGettersTakingSomeArgument() {
+    }
+
+    @Pointcut("execution(* get*(..))")
+    public void pointBeforeAllGettersTakingNoOrSomeArgument() {
+    }
+
+    @Before("pointBeforeAllPublicServiceGettersReturningCircle()")
     public void logBeforeCircleGetter() {
         System.out.println("---> Logging before circle getter");
     }

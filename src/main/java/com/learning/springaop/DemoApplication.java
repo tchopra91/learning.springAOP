@@ -17,9 +17,9 @@ public class DemoApplication {
             ShapeService shapeService = (ShapeService) context.getBean("shapeService");
             shapeService.getCircle();
 
-            // shapeService.getCircleWithException();
+            shapeService.getCircleWithException();
         } catch (Exception e) {
-            // System.out.println("---> Exception occured :: " + e.getMessage());
+            System.out.println("---> Exception occured :: " + e.getMessage());
         }
 
         context.close();
