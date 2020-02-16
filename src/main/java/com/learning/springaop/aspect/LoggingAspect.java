@@ -2,6 +2,7 @@ package com.learning.springaop.aspect;
 
 import com.learning.springaop.model.Circle;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -39,8 +40,8 @@ public class LoggingAspect {
     }
 
     @Before("pointBeforeAllPublicServiceGettersReturningCircle()")
-    public void logBeforeCircleGetter() {
-        System.out.println("---> Logging before circle getter");
+    public void logBeforeCircleGetter(JoinPoint joinPoint) {
+        System.out.println("---> Logging before circle getter :: " + joinPoint.getSignature());
     }
 
     public void logAfterCircleGetter() {
